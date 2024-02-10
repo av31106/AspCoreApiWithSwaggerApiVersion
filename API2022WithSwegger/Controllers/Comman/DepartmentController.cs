@@ -21,6 +21,11 @@ namespace API2022WithSwegger.Controllers.Comman
         {
         }
 
+        /// <summary>
+        /// Get department details based on department id.
+        /// </summary>
+        /// <param name="id">Department id</param>
+        /// <returns>Department Details</returns>
         [HttpGet]
         [ActionName("GetDepartmentById")]
         public ResultReponse GetDepartmentById(int id)
@@ -46,6 +51,10 @@ namespace API2022WithSwegger.Controllers.Comman
             return resultReponse;
         }
 
+        /// <summary>
+        /// Get all departments details.
+        /// </summary>
+        /// <returns>Departments details</returns>
         [HttpGet]
         [ActionName("GetAllDepartments")]
         public ResultReponse GetAllDepartments()
@@ -53,6 +62,11 @@ namespace API2022WithSwegger.Controllers.Comman
             return ResponseSend(true, Departments); ;
         }
 
+        /// <summary>
+        /// Add department details.
+        /// </summary>
+        /// <param name="department">Department details</param>
+        /// <returns>Department details</returns>
         [HttpPost]
         [ActionName("AddDepartment")]
         public ResultReponse AddDepartment(Department department)
@@ -61,6 +75,11 @@ namespace API2022WithSwegger.Controllers.Comman
             return ResponseSend(true, department);
         }
 
+        /// <summary>
+        /// Update department details based on department id.
+        /// </summary>
+        /// <param name="department">Department details</param>
+        /// <returns>Department details</returns>
         [HttpPost]
         [ActionName("UpdateDepartment")]
         public ResultReponse UpdateUser(Department department)
@@ -87,6 +106,11 @@ namespace API2022WithSwegger.Controllers.Comman
             return resultReponse;
         }
 
+        /// <summary>
+        /// Delete department based on department id.
+        /// </summary>
+        /// <param name="id">department id</param>
+        /// <returns>Department Details</returns>
         [HttpPost]
         [ActionName("DeleteDepartment")]
         public ResultReponse DeleteDepartment(int id)

@@ -18,6 +18,11 @@ namespace API2022WithSwegger.Controllers.Comman
 
         public UserController() { }
 
+        /// <summary>
+        /// Get user details based id.
+        /// </summary>
+        /// <param name="id">User id</param>
+        /// <returns>User details</returns>
         [HttpGet]
         [ActionName("GetUserById")]
         public ResultReponse GetUserById(int id)
@@ -43,6 +48,11 @@ namespace API2022WithSwegger.Controllers.Comman
             return resultReponse;
         }
 
+        /// <summary>
+        /// Get user details based login id.
+        /// </summary>
+        /// <param name="loginId">User login id</param>
+        /// <returns>User details</returns>
         [HttpGet]
         [ActionName("GetUserByLoginId")]
         public ResultReponse GetUserByLoginId(string loginId)
@@ -68,6 +78,10 @@ namespace API2022WithSwegger.Controllers.Comman
             return resultReponse;
         }
 
+        /// <summary>
+        /// Get all users details.
+        /// </summary>
+        /// <returns>Users details</returns>
         [HttpGet]
         [ActionName("GetAllUsers")]
         public ResultReponse GetAllUsers()
@@ -75,6 +89,11 @@ namespace API2022WithSwegger.Controllers.Comman
             return ResponseSend(true, Users);
         }
 
+        /// <summary>
+        /// Add user details.
+        /// </summary>
+        /// <param name="user">User Details</param>
+        /// <returns>User details</returns>
         [HttpPost]
         [ActionName("AddUser")]
         public ResultReponse AddUser(User user)
@@ -83,6 +102,11 @@ namespace API2022WithSwegger.Controllers.Comman
             return ResponseSend(true, user);
         }
 
+        /// <summary>
+        /// Update any user details based on id.
+        /// </summary>
+        /// <param name="user">User Details</param>
+        /// <returns>User Details</returns>
         [HttpPost]
         [ActionName("UpdateUser")]
         public ResultReponse UpdateUser(User user)
@@ -111,6 +135,11 @@ namespace API2022WithSwegger.Controllers.Comman
             return resultReponse;
         }
 
+        /// <summary>
+        /// Delete user based on id.
+        /// </summary>
+        /// <param name="id">User id</param>
+        /// <returns>User Details</returns>
         [HttpPost]
         [ActionName("DeleteUser")]
         public ResultReponse DeleteUser(int id)
