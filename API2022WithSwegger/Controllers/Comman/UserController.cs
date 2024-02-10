@@ -94,6 +94,18 @@ namespace API2022WithSwegger.Controllers.Comman
         /// </summary>
         /// <param name="user">User Details</param>
         /// <returns>User details</returns>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     {
+        ///         "id": 0,
+        ///         "name": "string",
+        ///         "loginId": "string",
+        ///         "address": "string",
+        ///         "departmentIds": [0,0,0...]
+        ///     }
+        ///     
+        /// </remarks>
         [HttpPost]
         [ActionName("AddUser")]
         public ResultReponse AddUser(User user)

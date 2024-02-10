@@ -67,6 +67,16 @@ namespace API2022WithSwegger.Controllers.Comman
         /// </summary>
         /// <param name="department">Department details</param>
         /// <returns>Department details</returns>
+        /// <remarks>
+        /// Sample request:
+        /// 
+        ///     {
+        ///         "id": 0,
+        ///         "name": "string",
+        ///         "code": "string"
+        ///     }
+        /// 
+        /// </remarks>
         [HttpPost]
         [ActionName("AddDepartment")]
         public ResultReponse AddDepartment(Department department)
