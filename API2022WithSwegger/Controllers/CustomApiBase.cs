@@ -1,11 +1,12 @@
 ﻿using API2022WithSwegger.Models;
+using Asp.Versioning;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API2022WithSwegger.Controllers
 {
     [ApiController]
-    [Route("Api/[area]/[controller]/[action]")]
+    [Route("Api/v{version:apiVersion}/[area]/[controller]/[action]")]
     public class CustomApiBase : ControllerBase
     {
         internal ResultReponse ResponseSend(Boolean isSuccess, dynamic? result = null, string? errorMessage = null, 

@@ -8,19 +8,19 @@ using Microsoft.OpenApi.Extensions;
 namespace API2022WithSwegger.Controllers.Comman
 {
     [Area("Comman")]
-    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [ControllerName("Department")]
-    public class DepartmentController : CustomApiBase
+    public class DepartmentV2Controller : CustomApiBase
     {
         private static List<Department> Departments = new List<Department>()
         {
-            new Department() { Id = 1,Code="ACC",Name="Account Department"},
-            new Department() { Id = 2,Code="RES",Name="Resarch Department"},
-            new Department() { Id = 3,Code="SAL",Name="Sales Department"},
-            new Department() { Id = 4,Code="STO",Name="Store Department"}
+            new Department() { Id = 1,Code="ACC V2",Name="Account Department V2"},
+            new Department() { Id = 2,Code="RES V2",Name="Resarch Department V2"},
+            new Department() { Id = 3,Code="SAL V2",Name="Sales Department V2"},
+            new Department() { Id = 4,Code="STO V2",Name="Store Department V2"}
         };
 
-        public DepartmentController()
+        public DepartmentV2Controller()
         {
         }
 

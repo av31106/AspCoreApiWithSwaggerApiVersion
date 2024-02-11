@@ -7,19 +7,19 @@ using Microsoft.AspNetCore.Mvc;
 namespace API2022WithSwegger.Controllers.Comman
 {
     [Area("Comman")]
-    [ApiVersion("1.0")]
+    [ApiVersion("2.0")]
     [ControllerName("User")]
-    public class UserController : CustomApiBase
+    public class UserV2Controller : CustomApiBase
     {
         private static List<User> Users = new List<User>()
         {
-            new User { Id = 1,Name="Anil Kumar",LoginId="Anil31106",Address="Jagat Puri", DepartmentIds=new List<int> {1,2}},
-            new User { Id = 2,Name="Raj Kumar",LoginId="Raj311",Address="Ram Puri", DepartmentIds=new List<int> {11,22}},
-            new User { Id = 3,Name="kamal Kumar Singh",LoginId="kamal106",Address="Shahjaha puri", DepartmentIds=new List<int> {14}},
-            new User { Id = 3,Name="kamal Bora",LoginId="Bora106",Address="Ram puri", DepartmentIds=new List<int> {11}}
+            new User { Id = 1,Name="Anil Kumar V2",LoginId="Anil31106",Address="Jagat Puri", DepartmentIds=new List<int> {1,2}},
+            new User { Id = 2,Name="Raj Kumar V2",LoginId="Raj311",Address="Ram Puri", DepartmentIds=new List<int> {11,22}},
+            new User { Id = 3,Name="kamal Kumar Singh V2",LoginId="kamal106",Address="Shahjaha puri", DepartmentIds=new List<int> {14}},
+            new User { Id = 3,Name="kamal Bora v2",LoginId="Bora106",Address="Ram puri", DepartmentIds=new List<int> {11}}
         };
 
-        public UserController() { }
+        public UserV2Controller() { }
 
         /// <summary>
         /// Get user details based id.

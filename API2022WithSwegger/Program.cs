@@ -1,3 +1,4 @@
+using Asp.Versioning;
 using Microsoft.Extensions.Options;
 using Microsoft.OpenApi.Models;
 using System.Reflection;
@@ -11,27 +12,46 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen(options =>
 {
-    //options.SwaggerDoc("v1", new OpenApiInfo
-    //{
-    //    Version = "v1",
-    //    Title = "TAPI2022 With Swegger API",
-    //    Description = "An ASP.NET Core Web API for managing TAPI2022 With Swegger items",
-    //    TermsOfService = new Uri("https://example.com/terms"),
-    //    Contact = new OpenApiContact
-    //    {
-    //        Name = "Example Contact",
-    //        Url = new Uri("https://example.com/contact")
-    //    },
-    //    License = new OpenApiLicense
-    //    {
-    //        Name = "Example License",
-    //        Url = new Uri("https://example.com/license")
-    //    }
-    //});
+    options.SwaggerDoc("v1", new OpenApiInfo
+    {
+        Version = "v1",
+        Title = "TAPI2022 With Swegger API",
+        Description = "An ASP.NET Core Web API for managing TAPI2022 With Swegger items",
+        TermsOfService = new Uri("https://example.com/terms"),
+        Contact = new OpenApiContact
+        {
+            Name = "Example Contact",
+            Url = new Uri("https://example.com/contact")
+        },
+        License = new OpenApiLicense
+        {
+            Name = "Example License",
+            Url = new Uri("https://example.com/license")
+        }
+    });
     // using System.Reflection;
     var xmlFilename = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     options.IncludeXmlComments(Path.Combine(AppContext.BaseDirectory, xmlFilename));
 });
+
+var apiVersioningBuilder = builder.Services.AddApiVersioning(o =>
+{
+    o.AssumeDefaultVersionWhenUnspecified = true;
+    o.DefaultApiVersion = new ApiVersion(1, 0);
+    o.ReportApiVersions = true;
+    o.ApiVersionReader = ApiVersionReader.Combine(
+        new QueryStringApiVersionReader("api-version"),
+        new HeaderApiVersionReader("X-Version")//,
+        //new MediaTypeApiVersionReader("ver")
+        );
+});
+
+apiVersioningBuilder.AddApiExplorer(
+    options =>
+    {
+        options.GroupNameFormat = "'v'VVV";
+        options.SubstituteApiVersionInUrl = true;
+    });
 
 var app = builder.Build();
 
